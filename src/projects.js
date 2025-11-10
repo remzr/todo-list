@@ -1,0 +1,1 @@
+export const project = "This is a project";
