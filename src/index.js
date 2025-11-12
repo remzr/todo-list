@@ -1,5 +1,9 @@
 import "./styles.css";
 import { Project } from "./project.js";
+import {addEventListenerProject} from "./event-listeners.js";
+
+//Load event listener for new project on start
+addEventListenerProject();
 
 const testProject = new Project("Workout", "Routine");
 
