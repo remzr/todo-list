@@ -35,7 +35,7 @@ li {
     max-height: min-content;
 }
 
-h1, h2, h3, p {
+h1, h2, h3, p, legend {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-top: 4px;
     margin-bottom: 8px;
@@ -113,3 +113,16 @@ button {
     margin-right: 16px;
 }
 
+.modal-field {
+    width: 500px;
+    border: none;
+    padding: 32px;
+}
+
+.modal-field>form>fieldset {
+    border: none;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

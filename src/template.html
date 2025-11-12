@@ -6,6 +6,24 @@
     <title>Todo List</title>
 </head>
 <body>
+    <dialog id="favDialog" class="modal-field">
+        <!--Hidden modal for project creation-->
+        <form method="dialog">
+            <fieldset>
+                <legend>Create a new project</legend>
+                <p>
+                    <label for="favAnimal">Title:</label><br>
+                    <input id="projectTitleInput" type="text" name="projectTitle" value=""><br>
+                    <label for="favAnimal">Description:</label><br>
+                    <input id="projectDescInput" type="text" name="projectDescription" value="">
+                </p>
+                <div>
+                    <button id="projectCancelButton" type="reset">Cancel</button>
+                    <button id="projectSubmitButton" type="submit" value="Submit">Create Project</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
     <header>
         <h1>toodelist</h1>
     </header>
