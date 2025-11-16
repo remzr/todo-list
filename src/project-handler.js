@@ -5,6 +5,13 @@ import { addEventlistenerDelete } from "./delete.js";
 //Create array with all the projects to later export to index.js
 let projectList = [];
 
+export function projectListLoader(item, method) {
+    if (method == "delete") {
+        projectList.splice(item, 1);
+        writeToDOM(projectList, "projects");
+    }
+};
+
 //Add event listeners for project related buttons
 export function addEventListenerProject() {
     const dialog = document.getElementById("projectModal");

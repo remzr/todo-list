@@ -10,10 +10,10 @@ export function writeToDOM(arg, mode){
         for (let i = 0; i < arg.length; i++) {
             const newProjectElement = `
                 <li name="${i}">
-                    <p>4/5</p>
+                    <p>Project ${i+1}</p>
                     <h2>${arg[i].title}</h2>
                     <p>${arg[i].description}</p>
-                    <button class="delete-button">Delete</button>
+                    <button value="${i}" class="delete-button">Delete</button>
                 </li>`;
                 projectContainer.insertAdjacentHTML("afterbegin", newProjectElement);
         }        

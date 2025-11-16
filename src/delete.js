@@ -1,5 +1,7 @@
-export function deleteObject(EventTarget) {
-    console.log(EventTarget);
+import { projectListLoader } from "./project-handler";
+
+export function deleteObject(EventTarget) {    
+    projectListLoader(EventTarget, "delete");
 }
 
 export function addEventlistenerDelete() {
@@ -15,7 +17,7 @@ export function addEventlistenerDelete() {
 
         buttonsArray.forEach((element) => {
             element.addEventListener("click", function() {
-                deleteObject(EventTarget);
+                deleteObject(event.target.value);
             });
         });
     };
