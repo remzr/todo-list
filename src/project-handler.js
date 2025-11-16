@@ -1,30 +1,46 @@
-import { getModalValue } from "./get-modal-value.js";
 import { Project } from "./project-class.js";
 
 //Create array with all the projects to later export to index.js
 let projectList = [];
 
-//Add event listeners
+//Add event listeners for project related buttons
 export function addEventListenerProject() {
-    const dialog = document.getElementById("favDialog");
+    const dialog = document.getElementById("projectModal");
 
+    //Add click listener to newProject button to open modal
     document.getElementById("newProject").addEventListener("click", () => {
-        dialog.showModal()
+        let targetClass = event.target.class;
+        dialog.showModal();
     });
-    document.getElementById("projectSubmitButton").addEventListener("click", 
-        document.dialog.submit()
-    );
-    document.getElementById("projectCancelButton").addEventListener("click", () => { 
-        dialog.close("Selection cancelled");
+    //Add click listener to submit button, get input values, prevent default behaviour for now and call
+    //CreateProject function with dialog.close method.
+    document.getElementById("projectSubmitButton").addEventListener("click", (event) => {
+        event.preventDefault();
+        
+        const projectTitleInput = document.getElementById("projectTitleInput").value;
+        const projectDescInput = document.getElementById("projectDescInput").value;
+
+        dialog.close(createProject(projectTitleInput, projectDescInput));
+    });
+    //Add click listener for cancel button
+    document.getElementById("projectCancelButton").addEventListener("click", () => {
+        dialog.close()
     });
 };
 
-function createProject() {
-    let values = getModalValue("project");
+//Is called by submit button, creates a new project with class, pushes it to projectlist and calls
+//write to DOM function
+function createProject(title, description) {
 
-    let newProject = new Project(values[0], values[1]);
-    console.log(newProject);
-    return newProject;
+    let project = new Project(title, description);
+    projectList.push(project);
+
+    console.log(projectList)
 }
+
+function clickChecker(e) {
+    console.log(`${e} has been clicked!`)
+}
+
 
 export {projectList}
