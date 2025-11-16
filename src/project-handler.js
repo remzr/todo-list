@@ -1,4 +1,5 @@
 import { Project } from "./project-class.js";
+import { writeToDOM } from "./write-to-DOM.js";
 
 //Create array with all the projects to later export to index.js
 let projectList = [];
@@ -35,12 +36,7 @@ function createProject(title, description) {
     let project = new Project(title, description);
     projectList.push(project);
 
-    console.log(projectList)
+    writeToDOM(projectList, "projects")
 }
-
-function clickChecker(e) {
-    console.log(`${e} has been clicked!`)
-}
-
 
 export {projectList}
