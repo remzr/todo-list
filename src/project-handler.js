@@ -1,5 +1,6 @@
 import { Project } from "./project-class.js";
 import { writeToDOM } from "./write-to-DOM.js";
+import { addEventlistenerDelete } from "./delete.js";
 
 //Create array with all the projects to later export to index.js
 let projectList = [];
@@ -36,7 +37,8 @@ function createProject(title, description) {
     let project = new Project(title, description);
     projectList.push(project);
 
-    writeToDOM(projectList, "projects")
+    writeToDOM(projectList, "projects");
+    addEventlistenerDelete();
 }
 
 export {projectList}

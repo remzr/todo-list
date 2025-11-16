@@ -9,14 +9,14 @@ export function writeToDOM(arg, mode){
         //Add projects from updated projectlist to DOM
         for (let i = 0; i < arg.length; i++) {
             const newProjectElement = `
-                <li>
+                <li name="${i}">
                     <p>4/5</p>
                     <h2>${arg[i].title}</h2>
-                    <p>${arg[i].desc}</p>
-                    <button>Delete</button>
+                    <p>${arg[i].description}</p>
+                    <button class="delete-button">Delete</button>
                 </li>`;
                 projectContainer.insertAdjacentHTML("afterbegin", newProjectElement);
         }        
-    
     }
 }
+
