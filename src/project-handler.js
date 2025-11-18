@@ -9,10 +9,16 @@ let projectList = [];
 export function projectListLoader(item, method) {
     if (method == "delete") {
         projectList.splice(item, 1);
+        
         writeToDOM(projectList);
         addEventlistenerDelete();
-        addEventListenerSelect();    }
+        addEventListenerSelect();    
+    }
 };
+
+export function projectSelector(item) {
+    console.log(item);
+}
 
 //Add event listeners for project related buttons
 export function addEventListenerProject() {

@@ -1,3 +1,5 @@
+import { projectSelector } from "./project-handler";
+
 export function addEventListenerSelect() {
     console.log("Add project selection listeners");
     
@@ -6,7 +8,7 @@ export function addEventListenerSelect() {
       
     projectContainerArray.forEach((element) => {
         element.addEventListener("click", function() {
-            projectSelector(event.currentTarget.value);
+            projectSelector(event.currentTarget.getAttribute("name"));
         });
     });
 };
