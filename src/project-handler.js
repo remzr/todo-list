@@ -8,7 +8,7 @@ let projectList = [];
 export function projectListLoader(item, method) {
     if (method == "delete") {
         projectList.splice(item, 1);
-        writeToDOM(projectList, "projects");
+        writeToDOM(projectList);
     }
 };
 
@@ -44,7 +44,7 @@ function createProject(title, description) {
     let project = new Project(title, description);
     projectList.push(project);
 
-    writeToDOM(projectList, "projects");
+    writeToDOM(projectList);
     addEventlistenerDelete();
 }
 

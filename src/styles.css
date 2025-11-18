@@ -126,3 +126,12 @@ button {
     flex-direction: column;
     gap: 16px;
 }
+
+button.todo-item-button {
+    border: solid 1px cadetblue;
+    height: unset;
+    background-color: cadetblue;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+}
