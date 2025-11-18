@@ -1,7 +1,3 @@
-export function projectSelector(EventTarget) {
-    console.log(EventTarget);
-}
-
 export function addEventListenerSelect() {
     console.log("Add project selection listeners");
     
@@ -10,7 +6,7 @@ export function addEventListenerSelect() {
       
     projectContainerArray.forEach((element) => {
         element.addEventListener("click", function() {
-            projectSelector(event.target.value);
+            projectSelector(event.currentTarget.value);
         });
     });
 };
