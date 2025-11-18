@@ -5,6 +5,8 @@ export function deleteObject(EventTarget) {
 }
 
 export function addEventlistenerDelete() {
+    console.log("Add delete listeners");
+    
     let projectContainer = document.getElementById("project-list");
 
     //Check if projects exist

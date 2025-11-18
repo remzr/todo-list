@@ -1,6 +1,7 @@
 import { Project } from "./project-class.js";
 import { writeToDOM } from "./write-to-DOM.js";
 import { addEventlistenerDelete } from "./delete.js";
+import { addEventListenerSelect } from "./project-selector.js";
 
 //Create array with all the projects to later export to index.js
 let projectList = [];
@@ -9,7 +10,8 @@ export function projectListLoader(item, method) {
     if (method == "delete") {
         projectList.splice(item, 1);
         writeToDOM(projectList);
-    }
+        addEventlistenerDelete();
+        addEventListenerSelect();    }
 };
 
 //Add event listeners for project related buttons
@@ -46,6 +48,7 @@ function createProject(title, description) {
 
     writeToDOM(projectList);
     addEventlistenerDelete();
+    addEventListenerSelect();
 }
 
 export {projectList}

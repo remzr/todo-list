@@ -1,5 +1,5 @@
 export function writeToDOM(arg){
-
+    console.log("Writing to DOM");
     //Empty all existing projects from view
     let projectContainer = document.getElementById("project-list");
     while (projectContainer.firstChild.id != "newProject") {
@@ -20,7 +20,6 @@ export function writeToDOM(arg){
     
     //If project contains todos, update them in the DOM
     if (arg[0].todos != "") {
-        console.log(arg[0].todos);
         //Empty all existing todos from view
         let todoContainer = document.getElementById("content-main");
         while (todoContainer.firstChild != "") {
