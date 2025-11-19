@@ -34,6 +34,4 @@ function createTodo(title, description) {
         }
     }
     projectList[projectIndex].newTodo(title, description, "19.11.2025 13:08");
-
-    console.log(projectList);
 }

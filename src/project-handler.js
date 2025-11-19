@@ -12,7 +12,7 @@ export function projectListLoader(item, method) {
         
         writeToDOM(projectList);
         addEventlistenerDelete();
-        addEventListenerSelect();    
+        addEventListenerSelect();
     }
 };
 
@@ -65,6 +65,10 @@ function createProject(title, description) {
 
     let project = new Project(title, description);
     projectList.push(project);
+
+    if (projectList.length == 1) {
+        project.active = true;
+    }
 
     writeToDOM(projectList);
     addEventlistenerDelete();
