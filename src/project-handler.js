@@ -10,6 +10,12 @@ export function projectListLoader(item, method) {
     if (method == "delete") {
         projectList.splice(item, 1);
         
+    if (typeof activeProjectIndex === "undefined") {
+        let activeProjectIndex = 0;
+    } else {
+        activeProjectIndex = 0;
+    }
+
         writeToDOM(projectList);
         addEventlistenerDelete();
         addEventListenerSelect();

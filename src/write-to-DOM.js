@@ -37,28 +37,25 @@ export function writeToDOM(arg, activeProjectIndex){
     while (todoContainer.firstChild.id != "newTodo") {
             todoContainer.removeChild(todoContainer.firstChild);
     };
-
+    console.log(arg);
     //Add todos from selected project to DOM
-    if (activeProjectIndex != undefined) {
+    if (activeProjectIndex >= 0 && arg.length != 0) {
         for (let j = 0; j < arg[activeProjectIndex].todos.length; j++) {
 
         //Create todo HTML
         const newTodoElement = `
-            <div id="todo-item-6" class="todo-item">
-                <div class="todo-title">
-                    <input type="checkbox" id="checkbox-item-1" name="item1" value="item1">
-                    <h3>Todo Item 6</h3>
+            <div name="${j}" id="todo-item-${j}" class="todo-item">
+                <div value="${j}" class="todo-title">
+                    <input type="checkbox" id="checkbox-item-1" name="item1" value="${j}">
+                    <h3 value="${j}">${arg[activeProjectIndex].todos[j].title}</h3>
                 </div>
-                <p>This item has a description that tells us what needs to be done.</p>
-                <div class="todo-footer">
-                    <p>65 hours left</p>
-                    <button id="deleteTodoItem">Delete</button>
+                <p value="${j}">${arg[activeProjectIndex].todos[j].description}</p>
+                <div value="${j}" class="todo-footer">
+                    <p value="${j}">65 hours left</p>
+                    <button value="${j}" id="deleteTodoItem">Delete</button>
                 </div>
             </div>`;
             todoContainer.insertAdjacentHTML("afterbegin", newTodoElement);
         }
     }
-   
-    
-
 };

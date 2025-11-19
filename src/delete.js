@@ -5,12 +5,11 @@ export function deleteObject(EventTarget) {
 }
 
 export function addEventlistenerDelete() {
-    console.log("Add delete listeners");
     
     let projectContainer = document.getElementById("project-list");
 
     //Check if projects exist
-    if (projectContainer.firstElementChild.id != "newProject") {
+    if (projectContainer.firstElementChild.id != "newProject" || projectContainer.firstElementChild != "") {
     
         let buttons = document.querySelectorAll(".delete-button");
         let buttonsArray = [...buttons];

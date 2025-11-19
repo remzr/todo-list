@@ -1,5 +1,7 @@
 import { projectList } from "./project-handler";
-import { Project } from "./project-class";
+import { writeToDOM } from "./write-to-DOM";
+import { addEventlistenerDelete } from "./delete";
+import { addEventListenerSelect } from "./project-selector";
 
 export function addEventListenerTodo() {
     const dialog = document.getElementById("todoModal");
@@ -33,5 +35,11 @@ function createTodo(title, description) {
             projectIndex = i;
         }
     }
+
     projectList[projectIndex].newTodo(title, description, "19.11.2025 13:08");
+
+
+    writeToDOM(projectList, projectIndex);
+    addEventlistenerDelete();
+    addEventListenerSelect();
 }
