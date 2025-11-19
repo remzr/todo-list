@@ -27,6 +27,9 @@ export function projectSelector(item) {
                 projectList[i].active = false;
         }
     }
+    writeToDOM(projectList);
+    addEventlistenerDelete();
+    addEventListenerSelect();   
 }
 
 //Add event listeners for project related buttons

@@ -35,6 +35,10 @@ li {
     max-height: min-content;
 }
 
+li.selected {
+    background-color: lightcyan;
+}
+
 h1, h2, h3, p, legend {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-top: 4px;

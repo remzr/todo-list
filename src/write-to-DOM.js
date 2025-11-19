@@ -1,5 +1,5 @@
 export function writeToDOM(arg){
-    console.log("Writing to DOM");
+    console.log("Writing to DOM " + arg.active);
     //Empty all existing projects from view
     let projectContainer = document.getElementById("project-list");
     while (projectContainer.firstChild.id != "newProject") {
@@ -8,8 +8,17 @@ export function writeToDOM(arg){
 
     //Add projects from updated projectlist to DOM
     for (let i = 0; i < arg.length; i++) {
+    
+        //Swap class based on project state
+        let stateTracker = false;
+        if (arg[i].active == true) {
+            stateTracker = "selected"
+        } else {
+            stateTracker = ""
+        }
+        //Create project HTML
         const newProjectElement = `
-            <li name="${i}">
+            <li name="${i}" class=${stateTracker}>
                 <p value="${i}">Project ${i+1}</p>
                 <h2 value="${i}">${arg[i].title}</h2>
                 <p value="${i}">${arg[i].description}</p>
