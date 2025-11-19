@@ -16,8 +16,17 @@ export function projectListLoader(item, method) {
     }
 };
 
+//Updates project state
 export function projectSelector(item) {
-    console.log(item);
+    //Make selected project active
+
+    for (let i = 0; i < projectList.length; i++) {
+        if (i == item) {
+                projectList[i].active = true;
+        } else {
+                projectList[i].active = false;
+        }
+    }
 }
 
 //Add event listeners for project related buttons
