@@ -1,4 +1,6 @@
 import { todoButtonState } from ".";
+import { projectList } from "./project-handler";
+import { formatDistanceToNowStrict } from "date-fns";
 
 export function writeToDOM(arg, activeProjectIndex){
     //Enable todo button if projects exist
@@ -37,11 +39,11 @@ export function writeToDOM(arg, activeProjectIndex){
     while (todoContainer.firstChild.id != "newTodo") {
             todoContainer.removeChild(todoContainer.firstChild);
     };
-    console.log(arg);
+
     //Add todos from selected project to DOM
     if (activeProjectIndex >= 0 && arg.length != 0) {
         for (let j = 0; j < arg[activeProjectIndex].todos.length; j++) {
-
+    console.log(projectList);
         //Create todo HTML
         const newTodoElement = `
             <div name="${j}" id="todo-item-${j}" class="todo-item">
@@ -51,7 +53,7 @@ export function writeToDOM(arg, activeProjectIndex){
                 </div>
                 <p value="${j}">${arg[activeProjectIndex].todos[j].description}</p>
                 <div value="${j}" class="todo-footer">
-                    <p value="${j}">65 hours left</p>
+                    <p value="${j}">${formatDistanceToNowStrict(arg[activeProjectIndex].todos[j].dueDate)}</p>
                     <button value="${j}" id="deleteTodoItem">Delete</button>
                 </div>
             </div>`;

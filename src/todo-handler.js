@@ -17,8 +17,9 @@ export function addEventListenerTodo() {
         
         const todoTitleInput = document.getElementById("todoTitleInput").value;
         const todoDescInput = document.getElementById("todoDescInput").value;
+        const todoDuetimeInput = document.getElementById("todoDueTime").value;
 
-        dialog.close(createTodo(todoTitleInput, todoDescInput));
+        dialog.close(createTodo(todoTitleInput, todoDescInput, todoDuetimeInput));
     });
     //Add click listener for cancel button
     document.getElementById("todoCancelButton").addEventListener("click", () => {
@@ -26,7 +27,7 @@ export function addEventListenerTodo() {
     });
 };
 
-function createTodo(title, description) {
+function createTodo(title, description, dueDate) {
     
     let projectIndex = 0;
 
@@ -36,7 +37,7 @@ function createTodo(title, description) {
         }
     }
 
-    projectList[projectIndex].newTodo(title, description, "19.11.2025 13:08");
+    projectList[projectIndex].newTodo(title, description, dueDate);
 
 
     writeToDOM(projectList, projectIndex);
