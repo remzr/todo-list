@@ -1,4 +1,9 @@
+import { todoButtonState } from ".";
+
 export function writeToDOM(arg){
+    //Enable todo button if projects exist
+    todoButtonState();
+
     console.log("Writing to DOM " + arg.active);
     //Empty all existing projects from view
     let projectContainer = document.getElementById("project-list");
@@ -27,13 +32,10 @@ export function writeToDOM(arg){
             projectContainer.insertAdjacentHTML("afterbegin", newProjectElement);
     }
     
-    //If project contains todos, update them in the DOM
-    if (arg[0].todos != "") {
-        //Empty all existing todos from view
-        let todoContainer = document.getElementById("content-main");
-        while (todoContainer.firstChild != "") {
+    //Empty all existing todos from view
+    let todoContainer = document.getElementById("content-main");
+    while (todoContainer.firstChild.id != "newTodo") {
             todoContainer.removeChild(todoContainer.firstChild);
-        }
-
     };
+
 };
