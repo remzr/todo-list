@@ -38,7 +38,6 @@ export function addEventListenerProject() {
 
     //Add click listener to newProject button to open modal
     document.getElementById("newProject").addEventListener("click", () => {
-        let targetClass = event.target.class;
         dialog.showModal();
     });
     //Add click listener to submit button, get input values, prevent default behaviour for now and call
