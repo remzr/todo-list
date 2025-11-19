@@ -1,4 +1,5 @@
 import { projectList } from "./project-handler";
+import { Project } from "./project-class";
 
 export function addEventListenerTodo() {
     const dialog = document.getElementById("todoModal");
@@ -25,9 +26,14 @@ export function addEventListenerTodo() {
 
 function createTodo(title, description) {
     
-    projectList.forEach(()=> {
-        if (this.active == true) {
-            let projectIndex = 
+    let projectIndex = 0;
+
+    for (let i = 0; i < projectList.length; i++) {
+        if (projectList[i].active == true ) {
+            projectIndex = i;
         }
-    })
+    }
+    projectList[projectIndex].newTodo(title, description, "19.11.2025 13:08");
+
+    console.log(projectList);
 }
