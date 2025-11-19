@@ -1,6 +1,6 @@
 import { todoButtonState } from ".";
 
-export function writeToDOM(arg){
+export function writeToDOM(arg, activeProjectIndex){
     //Enable todo button if projects exist
     todoButtonState();
 
@@ -37,5 +37,28 @@ export function writeToDOM(arg){
     while (todoContainer.firstChild.id != "newTodo") {
             todoContainer.removeChild(todoContainer.firstChild);
     };
+
+    //Add todos from selected project to DOM
+    if (activeProjectIndex != undefined) {
+        for (let j = 0; j < arg[activeProjectIndex].todos.length; j++) {
+
+        //Create todo HTML
+        const newTodoElement = `
+            <div id="todo-item-6" class="todo-item">
+                <div class="todo-title">
+                    <input type="checkbox" id="checkbox-item-1" name="item1" value="item1">
+                    <h3>Todo Item 6</h3>
+                </div>
+                <p>This item has a description that tells us what needs to be done.</p>
+                <div class="todo-footer">
+                    <p>65 hours left</p>
+                    <button id="deleteTodoItem">Delete</button>
+                </div>
+            </div>`;
+            todoContainer.insertAdjacentHTML("afterbegin", newTodoElement);
+        }
+    }
+   
+    
 
 };

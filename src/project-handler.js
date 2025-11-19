@@ -19,15 +19,18 @@ export function projectListLoader(item, method) {
 //Updates project state
 export function projectSelector(item) {
     //Make selected project active
+let activeProjectIndex = 0;
 
     for (let i = 0; i < projectList.length; i++) {
         if (i == item) {
                 projectList[i].active = true;
+                activeProjectIndex = i;
+                console.log(`Project ${activeProjectIndex} is selected!`)
         } else {
                 projectList[i].active = false;
         }
     }
-    writeToDOM(projectList);
+    writeToDOM(projectList, activeProjectIndex);
     addEventlistenerDelete();
     addEventListenerSelect();   
 }
