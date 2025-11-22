@@ -1,4 +1,5 @@
 import { todoButtonState } from ".";
+import { saveToStorage } from "./local-storage";
 import { projectList } from "./project-handler";
 import { formatDistanceToNowStrict } from "date-fns";
 
@@ -59,4 +60,5 @@ export function writeToDOM(arg, activeProjectIndex){
             todoContainer.insertAdjacentHTML("afterbegin", newTodoElement);
         }
     }
+    saveToStorage(projectList);
 };
