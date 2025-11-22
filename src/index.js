@@ -3,9 +3,6 @@ import { addEventListenerProject, projectList } from "./project-handler.js";
 import { addEventListenerTodo } from "./todo-handler.js";
 import { loadProjectList } from "./local-storage.js";
 
-//Load data from local storage, if its existing.
-console.log(loadProjectList());
-
 //Load event listener for new project on start
 addEventListenerProject();
 addEventListenerTodo();
@@ -19,4 +16,7 @@ export function todoButtonState() {
     }
 };
 
-todoButtonState()
+todoButtonState();
+
+//Load data from local storage, if its existing.
+loadProjectList();
