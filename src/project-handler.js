@@ -5,6 +5,7 @@ import { addEventListenerSelect } from "./project-selector.js";
 
 //Create array with all the projects to later export to index.js
 let projectList = [];
+let activeProjectIndex = 0;
 
 export function projectListLoader(item, itemName) {
     if (itemName == "deleteProjectItem") {
@@ -18,31 +19,25 @@ export function projectListLoader(item, itemName) {
                 const activeIndex = projectList.findIndex(isActive);
                 
                 projectList[activeIndex].todos.splice(item, 1);
+
+                activeProjectIndex = activeIndex;
             }
         });
     }
         
-    if (typeof activeProjectIndex === "undefined") {
-        let activeProjectIndex = 0;
-    } else {
-        activeProjectIndex = 0;
-    }
-
-    writeToDOM(projectList);
+    writeToDOM(projectList, activeProjectIndex);
     addEventlistenerDelete();
     addEventListenerSelect();
 };
 
 //Updates project state
 export function projectSelector(item) {
-    //Make selected project active
-let activeProjectIndex = 0;
 
+    //Make selected project active
     for (let i = 0; i < projectList.length; i++) {
         if (i == item) {
                 projectList[i].active = true;
                 activeProjectIndex = i;
-                console.log(`Project ${activeProjectIndex} is selected!`)
         } else {
                 projectList[i].active = false;
         }
