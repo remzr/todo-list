@@ -27,7 +27,18 @@ export function addEventListenerTodo() {
     });
 };
 
-function createTodo(title, description, dueDate) {
+export function createTodo(title, description, dueDate) {
+    
+    //Fallback for falsy data input
+    if (title == undefined || title == "") {
+        title = "New Todo"
+    }
+    if (description == undefined || description == "") {
+        description = "Description"
+    }
+    if (dueDate == undefined || dueDate == "") {
+        dueDate = "2025-12-15T12:30";
+    }
     
     let projectIndex = 0;
 

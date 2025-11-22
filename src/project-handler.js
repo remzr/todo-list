@@ -73,7 +73,14 @@ export function addEventListenerProject() {
 
 //Is called by submit button, creates a new project with class, pushes it to projectlist and calls
 //write to DOM function
-function createProject(title, description) {
+export function createProject(title, description) {
+
+    //Fallback for falsy data input
+    if (title == undefined || title == "") {
+        title = "New Project"
+    } else if (description == undefined || description == "") {
+        description = "Description"
+    }
 
     let project = new Project(title, description);
     projectList.push(project);

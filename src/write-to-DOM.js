@@ -61,4 +61,5 @@ export function writeToDOM(arg, activeProjectIndex){
         }
     }
     saveToStorage(projectList);
+    console.log(projectList);
 };
