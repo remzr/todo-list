@@ -6,7 +6,6 @@ export function writeToDOM(arg, activeProjectIndex){
     //Enable todo button if projects exist
     todoButtonState();
 
-    console.log("Writing to DOM " + arg.active);
     //Empty all existing projects from view
     let projectContainer = document.getElementById("project-list");
     while (projectContainer.firstChild.id != "newProject") {
@@ -25,11 +24,11 @@ export function writeToDOM(arg, activeProjectIndex){
         }
         //Create project HTML
         const newProjectElement = `
-            <li name="${i}" class=${stateTracker}>
+            <li name="${i}" class=${stateTracker} name="deleteProjectItem">
                 <p value="${i}">Project ${i+1}</p>
                 <h2 value="${i}">${arg[i].title}</h2>
                 <p value="${i}">${arg[i].description}</p>
-                <button value="${i}" class="delete-button">Delete</button>
+                <button value="${i}" class="delete-button" name="deleteProjectItem">Delete</button>
             </li>`;
             projectContainer.insertAdjacentHTML("afterbegin", newProjectElement);
     }
@@ -43,7 +42,7 @@ export function writeToDOM(arg, activeProjectIndex){
     //Add todos from selected project to DOM
     if (activeProjectIndex >= 0 && arg.length != 0) {
         for (let j = 0; j < arg[activeProjectIndex].todos.length; j++) {
-    console.log(projectList);
+
         //Create todo HTML
         const newTodoElement = `
             <div name="${j}" id="todo-item-${j}" class="todo-item">
@@ -54,7 +53,7 @@ export function writeToDOM(arg, activeProjectIndex){
                 <p value="${j}">${arg[activeProjectIndex].todos[j].description}</p>
                 <div value="${j}" class="todo-footer">
                     <p value="${j}">${formatDistanceToNowStrict(arg[activeProjectIndex].todos[j].dueDate)}</p>
-                    <button value="${j}" id="deleteTodoItem">Delete</button>
+                    <button value="${j}" class="delete-button" name="deleteTodoItem">Delete</button>
                 </div>
             </div>`;
             todoContainer.insertAdjacentHTML("afterbegin", newTodoElement);

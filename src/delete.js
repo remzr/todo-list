@@ -1,13 +1,9 @@
 import { projectListLoader } from "./project-handler";
 
-export function deleteObject(EventTarget) {    
-    projectListLoader(EventTarget, "delete");
-}
-
 export function addEventlistenerDelete() {
     
     let projectContainer = document.getElementById("project-list");
-
+ 
     //Check if projects exist
     if (projectContainer.firstElementChild.id != "newProject" || projectContainer.firstElementChild != "") {
     
@@ -16,7 +12,7 @@ export function addEventlistenerDelete() {
 
         buttonsArray.forEach((element) => {
             element.addEventListener("click", function() {
-                deleteObject(event.target.value);
+                projectListLoader(event.target.value, event.target.name);
             });
         });
     } else {
