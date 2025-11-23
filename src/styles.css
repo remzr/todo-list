@@ -30,8 +30,7 @@ li {
     text-decoration: none;
     list-style: none;
     border-bottom: solid 1px cadetblue;
-    padding-bottom: 16px;
-    padding-top: 16px;
+    padding: 16px;
     max-height: min-content;
 }
 
@@ -45,7 +44,12 @@ h1, h2, h3, p, legend {
     margin-bottom: 8px;
 }
 
+h2 {
+    margin-top: -8px;
+}
+
 p {
+    word-wrap: break-word;
     font-size: 1rem;
     font-weight: 200;
     color: rgb(32, 39, 58);
@@ -56,9 +60,9 @@ h1 {
 }
 
 header {
-    padding-left: 32px;
-    height: 10vh;
-    max-height: 80px;    
+    padding-left: 16px;
+    padding-bottom: 16px;
+    padding-top: 16px;
 }
 
 content {
@@ -114,7 +118,6 @@ button {
     height: 32px;
     font-weight: 600;
     width: 90%;
-    margin-right: 16px;
 }
 
 .modal-field {
@@ -138,4 +141,16 @@ button.todo-item-button {
     color: white;
     font-weight: 600;
     font-size: 1rem;
+}
+
+p>input {
+    padding-top: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+fieldset>div>button:last-of-type {
+    background-color: cadetblue;
+    color: white;
+    margin-left: 16px;
 }
