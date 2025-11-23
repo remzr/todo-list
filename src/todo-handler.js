@@ -27,7 +27,7 @@ export function addEventListenerTodo() {
     });
 };
 
-export function createTodo(title, description, dueDate) {
+export function createTodo(title, description, dueDate, indexProject) {
     
     //Fallback for falsy data input
     if (title == undefined || title == "") {
@@ -42,11 +42,15 @@ export function createTodo(title, description, dueDate) {
     
     let projectIndex = 0;
 
-    for (let i = 0; i < projectList.length; i++) {
-        if (projectList[i].active == true ) {
-            projectIndex = i;
+    if (indexProject != "" && indexProject != undefined) {
+        projectIndex = indexProject;
+    } else {
+        for (let i = 0; i < projectList.length; i++) {
+            if (projectList[i].active == true ) {
+                projectIndex = i;
+            }
         }
-    }
+    };
 
     projectList[projectIndex].newTodo(title, description, dueDate);
 

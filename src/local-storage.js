@@ -10,9 +10,7 @@ export function loadProjectList() {
     let projectTitle = [];
     let projectDescription = [];
     
-    console.log(loadedProjects);
-
-    //Create Projects and Todos with paramters from local storage
+    //Create Projects and Todos with parame ters from local storage
     if (loadedProjects != "" && loadedProjects != null) {
 
         for (let i = 0; i < loadedProjects[0].length; i++) {
@@ -21,8 +19,9 @@ export function loadProjectList() {
             projectDescription = loadedProjects[0][i].description;
 
             createProject(projectTitle,projectDescription);
+            
             for (let j = 0; j < loadedProjects[0][i].todos.length; j++) {
-                createTodo(loadedProjects[0][i].todos[j].title, loadedProjects[0][i].todos[j].description, loadedProjects[0][i].todos[j].dueDate)
+                createTodo(loadedProjects[0][i].todos[j].title, loadedProjects[0][i].todos[j].description, loadedProjects[0][i].todos[j].dueDate, i)
             }
         }
         return loadedProjects;
