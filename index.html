@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+<script defer src="main.js"></script></head>
+<body>
+    <dialog id="projectModal" class="modal-field">
+        <!--Hidden modal for project creation-->
+        <form method="dialog">
+            <fieldset>
+                <legend>Create a new project</legend>
+                <p>
+                    <label for="projectTitleInput">Title:</label><br>
+                    <input id="projectTitleInput" type="text" name="projectTitle" value=""><br>
+                    <label for="projectDescInput">Description:</label><br>
+                    <input id="projectDescInput" type="text" name="projectDescription" value="">
+                </p>
+                <div>
+                    <button id="projectCancelButton" class="project-button" type="reset">Cancel</button>
+                    <button id="projectSubmitButton" class="project-button" type="submit" value="default">Create Project</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
+    <dialog id="todoModal" class="modal-field">
+        <!--Hidden modal for todo creation-->
+        <form method="dialog">
+            <fieldset>
+                <legend>Add a new todo to this project</legend>
+                <p>
+                    <label for="todoTitleInput">Title:</label><br>
+                    <input id="todoTitleInput" type="text" name="todoTitle" value=""><br>
+                    <label for="todoDescInput">Description:</label><br>
+                    <input id="todoDescInput" type="text" name="todoDescription" value=""><br>
+                    <label for="todoDueTime">Task due:</label><br>
+                    <input type="datetime-local" id="todoDueTime" name="todoDueTime"/>
+                </p>
+                <div>
+                    <button id="todoCancelButton" class="todo-button" type="reset">Cancel</button>
+                    <button id="todoSubmitButton" class="todo-button" type="submit" value="default">Add Todo</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
+    <header>
+        <h1>toode<i>list</i></h1>
+    </header>
+    <main>
+        <aside id="content-side">
+            <ul id="project-list">
+                <button id="newProject">Add new project</button>
+            </ul>
+        </aside>
+        <content id="content-main">
+            <button id="newTodo" class="todo-item-button">+ Add Todo</button>
+        </content>
+    </main>
+    <footer>
+        <p>Handcrafted with love by <strong>Remo Moser</strong></p>
+    </footer> 
+</body>
+</html>
